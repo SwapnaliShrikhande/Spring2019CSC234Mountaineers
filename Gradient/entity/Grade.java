@@ -1,4 +1,4 @@
-package src.app;
+package entity;
 
 import java.util.Formatter;
 
