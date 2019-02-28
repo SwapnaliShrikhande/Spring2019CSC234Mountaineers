@@ -2,6 +2,8 @@ package app;
 //import grading.*;
 import java.util.*;
 
+import entity.Grade;
+
 /**
  * An application for calculating the numeric grade for
  * a course from the grades on individual assignments.
