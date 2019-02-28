@@ -3,6 +3,7 @@ package app;
 import java.util.*;
 
 import entity.Grade;
+import entity.GradingStrategy;
 
 /**
  * An application for calculating the numeric grade for
