@@ -3,10 +3,12 @@ package src.app;
 //import grading.*;
 import java.util.*;
 
+import entity.DropFilter;
 import entity.Filter;
 import entity.Grade;
 import entity.GradingStrategy;
 import entity.SizeException;
+import entity.TotalStrategy;
 
 /**
  * An application for calculating the numeric grade for

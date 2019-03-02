@@ -11,7 +11,7 @@ public class TotalStrategy implements GradingStrategy  {
 	double total = 0.0;
 	Grade grade;
 	
-	TotalStrategy(){
+	public TotalStrategy(){
 		
 	}
 

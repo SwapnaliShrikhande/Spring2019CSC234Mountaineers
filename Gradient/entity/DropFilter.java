@@ -13,7 +13,7 @@ public class DropFilter implements Filter {
 	
 	DropFilter() {}
 	
-	DropFilter(boolean shouldDropLowest, boolean shouldDropHighest) {}
+	public DropFilter(boolean shouldDropLowest, boolean shouldDropHighest) {}
 
 	@Override
 	public List<Grade> apply() {
