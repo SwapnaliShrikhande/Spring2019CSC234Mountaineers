@@ -8,5 +8,5 @@ import java.util.List;
 */
 
 public interface Filter {
-	List<Grade> apply (List<Grade>) throws SizeException;
+	List<Grade> apply (List<Grade> grades) throws SizeException;
 }
