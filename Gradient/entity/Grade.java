@@ -56,7 +56,7 @@ public class Grade implements Comparable<Grade>{
     else if(this.valaue != null && other.valaue == null)
       return 1;
     else
-      result = this.valaue.compareTo(other.valaue);
+      result = Double.compare(this.valaue, other.valaue);
     return result;
   }
   

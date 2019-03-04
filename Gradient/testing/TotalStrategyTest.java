@@ -27,7 +27,7 @@ class TotalStrategyTest {
 		double[] arr = new double[] {1.0,2.0,3.0,6.0,7.0,9.0};
 		for (int i=0; i<6; i++) 
 		{
-			grade = new Grade("PA", arr[i]);
+			grade = new Grade("PA"+i, arr[i]);
 			grades.add(grade);
 		}
 		TotalStrategy ts= new TotalStrategy();
