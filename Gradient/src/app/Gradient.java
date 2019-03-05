@@ -9,6 +9,7 @@ import entity.Grade;
 import entity.GradingStrategy;
 import entity.SizeException;
 import entity.TotalStrategy;
+import entity.WeightedTotalStrategy;
 
 /**
  * An application for calculating the numeric grade for
