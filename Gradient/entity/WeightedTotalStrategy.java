@@ -1,93 +1,64 @@
 package entity;
 
+import java.util.List;
+import java.util.Map;
+
 /*
- * Author: Mohini Patil
- */
-
-import java.util.*;
-
-public class WeightedTotalStrategy extends TotalStrategy{
-
-	Map<String, Double> GradeWeight;//Constructor
+ * Calculates midterm grades
+ * @author Mohini Patil, Swapnali Shrikhande
+ * @datecreated 3rd March 2019
+ * */
+public class WeightedTotalStrategy extends TotalStrategy implements GradingStrategy   {
+	List<Grade> managedGrade;
+	Map<String, Double> courseWeights;
+	Double weight;
+	Double weightedTotal;
 	
-	public WeightedTotalStrategy() {
-		GradeWeight = null;
-		
+	WeightedTotalStrategy() {
+		//initialize courseWeights map to null
+		courseWeights = null;
+		weight = 0.0;
+		weightedTotal = 0.0;
 	}
 	
-	public WeightedTotalStrategy(Map<String,Double>GivenWeight) {
-		
-		GradeWeight = GivenWeight; 
+	
+	public WeightedTotalStrategy(Map<String, Double> weights) {
+		courseWeights = weights;
 	}
 	
-	public double calculate(String key, List<Grade> grades) throws SizeException {
-		double localW = 0.0;
-		double Average = 0.0;
-		TotalStrategy ts=new TotalStrategy();
-		  if (grades.equals(null)) {
-	           throw new SizeException("Map of weights given is null");
-	       } else if(GradeWeight.isEmpty()) {
-	           throw new SizeException("map of wieghts is empty. Size = 0");
-	       }else {
-	    	   
-	    	Grade gradesTotal;
-	    	//gradesTotal= ts.calculate("total", grades);
-	           
-			for(int i=0 ;i < grades.size(); i++) {
-	               //if user's key exist in weight map, use key's weight accordingly.
-	               if (grades.contains(grades.get(i).getKey())) {
-	                   
-	            	   localW = GradeWeight.get(grades.get(i).getKey());
-	                   if (localW < 0.0)
-	                   {
-	                       localW = 0;
-	                   }
-	               }
-	               //No weight = assume 1.0
-	               else {      
-	                   localW = 1.0;
-	                   // Here missing class is used to obtain missing value
-	               		}
-	               
-	               int missingGradeVal = 0;
-	               double total = 0.0;
-	               
-	               //calculate average
-	             /*  if (grades.get(i).getValaue() == 0.0) {
-	            	   missingGradeVal = Missing.doubleValue(grades.get(i).getValaue());
-	               } 
-	               */
-	               //Average = gradesTotal / grades;
-	               
-	               /*
-	               // Total(Grade Value * weight) / weight  calculated
-	               if (grades.get(i).getValaue() == 0.0) {
-	                   Average += Missing.doubleValue(grades.get(i).getValaue());
-	               } else {
-	                   Average += grades.get(i).getValaue() * localW / localW;
-	               }
-	               */
-	           }
+	/*
+	 * calculates grades total of list of Grade objects passed
+	 * @referenceDoc Glossary_Gradient.pdf
+	 * @weightedtotal = summation ()
+	 * @param key = course grade, PAs, HWs
+	 * @return Grade = key (course grade, PAs, HWs), corresponding WEIGHTED total grade
+	 * throws SizeException
+	 * */
+	public Grade calculate(String key, List<Grade> grade) throws SizeException {
+		managedGrade = grade;
+		
+		//handle grade cases
+		if (grade == null || grade.size() == 0) throw new SizeException("WeightedTotalStrategy passed null grade object");
+		
+		//if courseWeights is null
+		if (courseWeights == null) {
+			weight = 0.0;
+		} if (!courseWeights.containsKey(key)) {
+			weight = 0.0;
+		} else {
+			//retrieve weight from mentioned key, along with missing checks of null
+			weight = Missing.doubleValue(courseWeights.get(key));
 			
-			if (total == 0.0) {
-				Average += Missing.doubleValue(total);
-			}
-			else {
-			}
-			Average += total* localW / localW;
-	       }
-	        /*  
-			for(int i=0 ;i < grades.size(); i++) {
-			Grade gradedTotal = new Grade(grades.get(i).getKey(),Average);
-	           return gradedTotal;
-	       }
-	      */
-			//change later!!
-			
-			return Average;
-	
+			if (weight < 0.0) weight = 0.0;
+		}
 		
+		//calculate weighted total
+		//formula: summation (weights*grades)
+		for (int i = 0; i < grade.size(); i++) {
+			weightedTotal += weight * Missing.doubleValue(grade.get(i).getValaue());
+		}
 		
+		//return the weightedTotal grade
+		return new Grade(key, weightedTotal);
 	}
-
-	}}
+}
