@@ -1,6 +1,5 @@
 package testing;
 
-import org.junit.Rule;
 
 /*
  * Calculates midterm grades
@@ -32,8 +31,7 @@ class GradientTest extends Gradient {
     }
 	@Test
 	public void testMain5() {
-        String [] args = {"20","18","5","15","20","20","20","0","5","10","15","80"};
+		String[] args = null;
         Gradient.main(args);
-        System.exit(1);
     }
 }
