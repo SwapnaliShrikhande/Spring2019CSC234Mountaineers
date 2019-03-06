@@ -11,6 +11,11 @@ import entity.Grade;
 import entity.SizeException;
 import entity.TotalStrategy;
 
+/*
+*Author: Behnam Salamati
+*
+*/
+
 class TotalStrategyTest {
 
 	@Test

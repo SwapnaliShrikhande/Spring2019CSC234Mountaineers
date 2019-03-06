@@ -51,7 +51,7 @@ public class DropFilter implements Filter {
 		Grade minimumGrade;
 		Grade maximumGrade;
 		
-		if (grades == null) 
+		if (grades.equals(null) || grades.isEmpty()) 
 			throw new SizeException("grades passed to DropFilter null");
 		
 		//if list contains fewer elements than that are to be dropped, throw SizeException
