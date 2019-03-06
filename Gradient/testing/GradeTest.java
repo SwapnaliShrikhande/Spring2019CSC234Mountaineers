@@ -37,8 +37,7 @@ public class GradeTest {
 	public void toStringTest() {
 		Grade grade = new Grade("HW",8.0);
 		Formatter fmt = new Formatter();
-		System.out.println(grade.toString());
-		//assertEquals("HW:   8.0",grade.toString());
+		assertEquals("HW:   8.0",grade.toString());
 	}
 	@Test
 	public void toStringTest2() {
