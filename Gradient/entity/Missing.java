@@ -19,7 +19,7 @@ public class Missing{
 	       }
 	       else
 	       {
-	           return number *2;
+	           return number;
 	       }
 	   }
 	   public static double doubleValue(Double number, double missingValue)

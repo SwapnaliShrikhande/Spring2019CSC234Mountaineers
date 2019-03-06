@@ -16,24 +16,24 @@ public class TotalStrategy implements GradingStrategy  {
 	}
 
 	@Override
-	public entity.Grade calculate(String key, List<entity.Grade> grades) throws SizeException {
+	public Grade calculate(String key, List<Grade> grades) throws SizeException {
 		// TODO Auto-generated method stub
+		double number = 0.0;
 		
-		switch(key) {
-			case "total":
+		if(grades.equals(null) || grades.size()==0)
+			throw new SizeException("List cant be empty");
+		else {
 				for (int i = 0; i < grades.size(); i++) {
-					total += grades.get(i).getValaue();	
+					
+					number = Missing.doubleValue(grades.get(i).getValaue());
+						
+					total += number;
 				}
-				new Grade(key, total);
-				break;
-		
-			default:
-				new Grade(key, 0.0);
-				
+			grade =	new Grade(key, total);		
 		}
-		
 		return grade;
-		
+
+		}
 	}
 
-}
+
