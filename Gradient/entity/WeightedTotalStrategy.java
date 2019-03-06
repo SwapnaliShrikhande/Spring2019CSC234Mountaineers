@@ -14,7 +14,7 @@ public class WeightedTotalStrategy extends TotalStrategy implements GradingStrat
 	Double weight;
 	Double weightedTotal;
 	
-	WeightedTotalStrategy() {
+	public WeightedTotalStrategy() {
 		//initialize courseWeights map to null
 		courseWeights = null;
 		weight = 0.0;
