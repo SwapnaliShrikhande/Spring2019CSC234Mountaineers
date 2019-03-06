@@ -1,6 +1,9 @@
 package testing;
 
-
+/*
+ * Calculates midterm grades
+ * @author Mohini Patil
+ * */
 
 import org.junit.jupiter.api.Test;
 
