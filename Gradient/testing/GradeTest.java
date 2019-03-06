@@ -17,11 +17,13 @@ public class GradeTest {
 
 	@Test
 	public void testIllegalException() {
-		assertThrows( IllegalArgumentException.class, () -> { Grade grade =new Grade(null,9.0); } );
+		Exception exception = assertThrows( IllegalArgumentException.class, () -> { Grade grade = new Grade(null, 9.0); } );
+		assertTrue(exception.getMessage().equals("Key can't be null"));
 	}
 	@Test
 	public void testIllegalException2() {
-		assertThrows( IllegalArgumentException.class, () -> { Grade grade =new Grade("",9.0); } );
+		Exception exception = assertThrows( IllegalArgumentException.class, () -> { Grade grade =new Grade("",9.0); } );
+		assertTrue(exception.getMessage().equals("Key can't be null"));
 	}
 	@Test
 	public void gradeConstructor() {
@@ -36,7 +38,6 @@ public class GradeTest {
 	@Test
 	public void toStringTest() {
 		Grade grade = new Grade("HW",8.0);
-		Formatter fmt = new Formatter();
 		assertEquals("HW:   8.0",grade.toString());
 	}
 	@Test
