@@ -29,7 +29,7 @@ public class Missing{
 	       }
 	       else
 	       {
-	           return missingValue * number;
+	           return number.doubleValue();
 	       }
 	   }
 	  

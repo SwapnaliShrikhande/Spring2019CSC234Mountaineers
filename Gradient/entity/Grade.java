@@ -2,6 +2,11 @@ package entity;
 
 import java.util.Formatter;
 
+/*
+Author: Behnam Salamati
+
+*/
+
 public class Grade implements Comparable<Grade>{
   
 
