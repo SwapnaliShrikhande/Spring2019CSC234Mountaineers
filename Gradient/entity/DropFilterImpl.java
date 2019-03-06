@@ -5,7 +5,9 @@ import java.util.List;
 
 import entity.SizeException;
 
-
+/*
+ * 
+ * */
 public class DropFilterImpl implements Filter {
 	
 	boolean shouldDropLowest;

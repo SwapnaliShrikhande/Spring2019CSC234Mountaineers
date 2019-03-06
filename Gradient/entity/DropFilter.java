@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.Collections;
 import java.util.List;
 
 import entity.SizeException;
@@ -9,7 +10,7 @@ import entity.SizeException;
  * value score from List<Grade>
  * 
  * @version 1.0
- * @author  Swapnali Shrikhande
+ * @author  Swapnali Shrikhande, Benham Salamati
  * @dateCreated 27th February 2019 
  *
  */
@@ -22,7 +23,7 @@ public class DropFilter implements Filter {
 	DropFilter dropFilter;
 	
 	//default constructor must construct DropFilter obejct
-	DropFilter() {
+	public DropFilter() {
 		dropFilter = new DropFilter(shouldDropLowest, shouldDropHighest);
 	}
 	
@@ -45,9 +46,10 @@ public class DropFilter implements Filter {
 	public List<Grade> apply(List<Grade> grades) throws SizeException {
 		int numberOfGrades = grades.size();
 		List<Grade> managedGrades;
-		double minimumGrade = Double.MAX_VALUE;
-		double maximumGrade = Double.MIN_VALUE;
-		double gradeVal = 0.0;
+		//double minimumGrade = Double.MAX_VALUE;
+		//double maximumGrade = Double.MIN_VALUE;
+		Grade minimumGrade;
+		Grade maximumGrade;
 		
 		if (grades == null) 
 			throw new SizeException("grades passed to DropFilter null");
@@ -65,24 +67,14 @@ public class DropFilter implements Filter {
 		
 		//calculate minimumGrade value
 		if (shouldDropLowest == true) {
-			for (Grade eachGrade : grades) {
-				if ((gradeVal = eachGrade.getValaue()) < minimumGrade)
-					minimumGrade = gradeVal;
-			}
+			minimumGrade = Collections.min(grades);
+			managedGrades.remove(minimumGrade);
 		}
 		
 		//calculate maximumGrade value
 		if (shouldDropHighest == true) {
-			for (Grade eachGrade : grades) {
-				if ((gradeVal = eachGrade.getValaue()) > maximumGrade)
-					maximumGrade = gradeVal;
-			}
-		}
-		
-		//drop the minimum and maximum grade values
-		for (Grade eachGrade : grades) {
-			if ((eachGrade.getValaue() == minimumGrade) || (eachGrade.getValaue() == maximumGrade))
-				managedGrades.remove(eachGrade);
+			maximumGrade = Collections.max(grades);
+			managedGrades.remove(maximumGrade);
 		}
 		
 		//return the new alias list

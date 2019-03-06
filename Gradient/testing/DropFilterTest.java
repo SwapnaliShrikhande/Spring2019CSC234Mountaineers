@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import entity.DropFilter;
@@ -14,14 +13,13 @@ import entity.Grade;
 import entity.SizeException;
 
 class DropFilterTest {
-	
-	
 	@Test
 	public void testSizeExceptionNull() {
 		List<Grade> grades = new ArrayList<Grade>();
 		DropFilterImpl dropFilterImpl = new DropFilterImpl();
 		assertThrows( SizeException.class, () -> { dropFilterImpl.apply(grades); } );
 	}
+	
 	@Test
 	public void testSizeExceptionOne() {
 		DropFilterImpl dropFilterImpl = new DropFilterImpl();
@@ -30,6 +28,7 @@ class DropFilterTest {
 		grades.add(grade1);
 		assertThrows( SizeException.class, () -> { dropFilterImpl.apply(grades); } );
 	}
+	
 	//It returns correct value with dropFilterImpl
 	@Test
 	public void testEliminateLowest() throws SizeException {
@@ -45,6 +44,7 @@ class DropFilterTest {
 		}
 		assertEquals("[PA0:  10.0, PA2:   3.0, PA3:   6.0, PA4:   8.0, PA5:   9.0]", dropFilterImpl.apply(grades).toString());
 	}
+	
 	//Error with dropFilter
 	@Test
 	public void testEliminateLowest2() throws SizeException {
