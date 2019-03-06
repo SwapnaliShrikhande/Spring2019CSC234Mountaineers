@@ -50,7 +50,7 @@ public class Gradient
 		if ((args == null) || (args.length != 13))
 		{
 			System.err.println("You must enter all 13 grades. (Use NA for missing.)");
-			System.exit(1);
+			System.exit(0);
 		}
 
 		// Create the filter and strategy for PAs

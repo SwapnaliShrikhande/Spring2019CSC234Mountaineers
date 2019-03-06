@@ -12,9 +12,9 @@ class GradientTest {
 	@Test
 	public void testMain() {
 		Gradient G  = new Gradient();
-        String [] args = null;
+        //String [] args = null;
         //exit.expectSystemExitWithStatus(1);
-        Gradient.main(args);
+        Gradient.main(null);
     }
 	@Test
 	public void testMain2() {
@@ -22,4 +22,5 @@ class GradientTest {
         String [] args = {"20","18","5","15","20","20","20","0","5","10","15","80","75"};
         Gradient.main(args);
     }
+	
 }
