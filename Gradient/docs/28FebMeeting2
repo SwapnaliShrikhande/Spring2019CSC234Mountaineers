@@ -1,0 +1,38 @@
+Agenda: Review class files implemented by team; map next project path of implementing remaining class files, test files and documentation
+Date: 27th February 2019
+Location: Mobile & Cloud Computing Lab, 2nd Floor, SacState, Sacramento, CA – 95825
+Meeting notes: Swapnali Shrikhande
+Topic: CSC234 Software Verification and Validation, Project1
+Team: Benham Salamati, Mohini Patil. Swapnali Shrikhande, Anisha Desai
+_____________________________________________________________________________________
+
+Meeting
+Pain-points review:
+1.	Resolved Anisha’s github commit issue
+2.	Discussed Mohini’s class implementation strategy of WeightedTotalStrategy.java
+
+Discussion regarding current understanding of the project:
+1.	Swapnali explained her implementation of Filter interface and DropFilter stub methods and her future implementation todo plan along with test-cases
+2.	Benham explained implementation of Grade class 
+3.	Mohini explained her implementation of WeightedTotalStrategy class
+4.	Anisha created stubs for TotalStrategy
+5.	As a team we discussed and resolved design structure between WeightedTotalStrategy and TotalStrategy (WeightedTotalStrategy extends TotalStrategy) and implemented TotalStrategy
+
+Plotting of future plan:
+1.	To complete implementation and class test-cases until next meeting of 2nd March 2019 
+2.	Individual deliverables:
+	Swapnali: 
+ 	Implementation of Missing and DropFilter class
+ 	Test-cases of Missing and DropFilter class
+	Mohini:
+ 	Refactoring of WeightedTotalStrategy as per new design decision
+ 	Test-cases of WeightedTotalStrategy class
+	Anisha:
+ 	Test-cases of TotalStrategy class
+	Benham:
+ 	Test-cases of Grade and SizeException class
+ 
+_____________________________________________________________________________________
+Next meeting details:
+Next meeting date: 2nd March 2019, 11am
+Agenda: Run the project and create refactoring and brainstorm Gradient class test-cases

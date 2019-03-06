@@ -1,0 +1,29 @@
+Agenda: To discuss the project and its requirement
+Date: 25th February 2019
+Location: Library FYE, 3rd Floor, SacState, Sacramento, CA – 95825
+Meeting notes: Swapnali Shrikhande
+Topic: CSC234 Software Verification and Validation, Project1
+Team: Benham Salamati, Mohini Patil. Swapnali Shrikhande, Anisha Desai
+_____________________________________________________________________________________
+
+Meeting
+Understanding project:
+1.	Anisha reviewed the purpose and overview section and gave us a brief about the project basis structure, terminologies and grading system
+2.	Swapnali reviewed preparatory tasks and documents sections. She set-up Github repository and gave a brief of specification, class diagram and required deliverables for the project
+3.	Mohini explained the recommended process given in assignment and reference provided for the project
+
+Plotting of future plan:
+1.	Scrum methodology accepted with sprint period of after every two days
+2.	Github repo updated with Gradient class
+3.	Classes implementation distributed amongst the team as:
+a.	Benham: Grade and GradingStrategy classes
+b.	Mohini: CourseStrategy and WeightedTotalStrategy classes
+c.	Swapnali: Filter and DropFilter classes
+d.	Anisha: Strategy and TotalStrategy classes
+
+Readiness Quiz:
+1.	Reviewed project specification documents and solved project readiness quiz
+_____________________________________________________________________________________
+Deliverable for next meeting:
+Next meeting date: 28th February 2019, 6:45pm
+Agenda: review of class files implemented by team, and next project path of implementing remaining class files, test files and documentation

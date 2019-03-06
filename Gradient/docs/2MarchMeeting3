@@ -1,0 +1,34 @@
+Agenda: Run the project and create refactoring plan + brainstorm Gradient class test-cases
+Date: 3rd March 2019
+Location: Library, 3rd Floor, SacState, Sacramento, CA – 95819
+Meeting notes: Swapnali Shrikhande
+Topic: CSC234 Software Verification and Validation, Project1
+Team: Benham Salamati, Mohini Patil. Swapnali Shrikhande, Anisha Desai
+_____________________________________________________________________________________
+
+Meeting
+Backlog:
+1.	Mohini’s WeightedTotalStrategy class not implemented yet
+2.	Project not able to run due to WeightedTotalStrategy class backlog 
+Resolving pain points:
+1.	Benham helped Anisha implement TotalStrategy and its test-case class
+2.	Swapnali helped Mohini understand purpose and logic of WeightedTotalStrategy class
+Plotting of future plan:
+1.	Swapnali will re-write WeightedTotalStrategy class as current is unreadable 
+2.	Individual deliverables:
+	Swapnali: 
+ 	Implementation of WeigtedTotalStrategy class
+ 	Test-cases of WeigtedTotalStrategy class
+ 	Get the project running
+	Mohini:
+ 	Implement test-cases of Gradient class
+	Anisha:
+ 	Test-cases of TotalStrategy class
+ 	Test-cases of Missing class
+	Benham:
+ 	Test-cases of DropFilter class and SizeException class
+_____________________________________________________________________________________
+Next meeting details:
+Next meeting date: 5th March 2019, 6:45pm
+Agenda: Run the project with various set of input values
+

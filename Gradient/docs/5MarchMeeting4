@@ -1,0 +1,36 @@
+Agenda: Run the project with different set of inputs values
+Date: 5th March 2019
+Location: Mobile & Computing Lab, 2nd Floor, SacState, Sacramento, CA – 95819
+Meeting notes: Swapnali Shrikhande
+Topic: CSC234 Software Verification and Validation, Project1
+Team: Benham Salamati, Mohini Patil. Swapnali Shrikhande, Anisha Desai
+_____________________________________________________________________________________
+
+Meeting
+Project execution:
+1.	Project run with NullPointerException in WeightedTotalStrategy, added quick fix to complete test-cases
+2.	Anisha and Benham wrote test-case class for Missing
+3.	Mohini and Benham started with test-cases for Gradient class 
+Backlog:
+1.	Debug project and print the desired output
+2.	Test-case for WeightedTotalStrategy class
+3.	Test-case for Gradient class
+Deliverables:
+1.	Individual deliverables:
+	Swapnali: 
+ 	Test-cases of WeigtedTotalStrategy class
+ 	Get the project running
+ 	Upload all minutes of the meeting documents to github repo
+ 	Project submission
+	Mohini:
+ 	Implement test-cases of Gradient class
+	Anisha:
+ 	Test-cases of WeightedTotalStrategy class
+	Benham:
+ 	Test-cases of Gradient class
+ 	Creating test suite for all the test-cases
+_____________________________________________________________________________________
+Next meeting details: NA
+Submission date: 6th March 2019
+Submission format: Github URL
+
