@@ -12,15 +12,14 @@ public class WeightedTotalStrategy extends TotalStrategy implements GradingStrat
 	List<Grade> managedGrade;
 	Map<String, Double> courseWeights;
 	Double weight;
-	Double weightedTotal;
+	Double weightedTotal = 0.0;
 	
-	WeightedTotalStrategy() {
+	public WeightedTotalStrategy() {
 		//initialize courseWeights map to null
 		courseWeights = null;
 		weight = 0.0;
 		weightedTotal = 0.0;
 	}
-	
 	
 	public WeightedTotalStrategy(Map<String, Double> weights) {
 		courseWeights = weights;
@@ -51,11 +50,13 @@ public class WeightedTotalStrategy extends TotalStrategy implements GradingStrat
 			
 			if (weight < 0.0) weight = 0.0;
 		}
-		
+		double tmp = 0.0;
 		//calculate weighted total
 		//formula: summation (weights*grades)
 		for (int i = 0; i < grade.size(); i++) {
-			weightedTotal += weight * Missing.doubleValue(grade.get(i).getValaue());
+			//weightedTotal += weight * Missing.doubleValue(grade.get(i).getValaue());
+			if (grade.get(i).getValaue() == null) tmp = 0.0;
+			weightedTotal += weight * tmp;
 		}
 		
 		//return the weightedTotal grade
