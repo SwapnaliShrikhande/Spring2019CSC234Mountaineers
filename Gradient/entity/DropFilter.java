@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.Collections;
 import java.util.List;
 
 import entity.SizeException;
@@ -22,7 +23,7 @@ public class DropFilter implements Filter {
 	DropFilter dropFilter;
 	
 	//default constructor must construct DropFilter obejct
-	DropFilter() {
+	public DropFilter() {
 		dropFilter = new DropFilter(shouldDropLowest, shouldDropHighest);
 	}
 	
@@ -45,8 +46,10 @@ public class DropFilter implements Filter {
 	public List<Grade> apply(List<Grade> grades) throws SizeException {
 		int numberOfGrades = grades.size();
 		List<Grade> managedGrades;
-		double minimumGrade = Double.MAX_VALUE;
-		double maximumGrade = Double.MIN_VALUE;
+		//double minimumGrade = Double.MAX_VALUE;
+		//double maximumGrade = Double.MIN_VALUE;
+		Grade minimumGrade;
+		Grade maximumGrade;
 		double gradeVal = 0.0;
 		
 		if (grades == null) 
@@ -65,25 +68,35 @@ public class DropFilter implements Filter {
 		
 		//calculate minimumGrade value
 		if (shouldDropLowest == true) {
+			minimumGrade = Collections.min(grades);
+			managedGrades.remove(minimumGrade);
+			/*
 			for (Grade eachGrade : grades) {
 				if ((gradeVal = eachGrade.getValaue()) < minimumGrade)
 					minimumGrade = gradeVal;
 			}
+			*/
 		}
 		
 		//calculate maximumGrade value
 		if (shouldDropHighest == true) {
+			minimumGrade = Collections.max(grades);
+			managedGrades.remove(minimumGrade);
+			/*
 			for (Grade eachGrade : grades) {
 				if ((gradeVal = eachGrade.getValaue()) > maximumGrade)
-					maximumGrade = gradeVal;
+					maximumGrade = gradeVal; 
 			}
+			*/
 		}
 		
 		//drop the minimum and maximum grade values
+		/*
 		for (Grade eachGrade : grades) {
 			if ((eachGrade.getValaue() == minimumGrade) || (eachGrade.getValaue() == maximumGrade))
 				managedGrades.remove(eachGrade);
 		}
+		*/
 		
 		//return the new alias list
 		return managedGrades;
