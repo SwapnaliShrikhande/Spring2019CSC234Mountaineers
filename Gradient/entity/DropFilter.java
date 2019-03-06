@@ -44,6 +44,11 @@ public class DropFilter implements Filter {
 	 */
 	@Override
 	public List<Grade> apply(List<Grade> grades) throws SizeException {
+		
+		if (grades == null || grades.size()==0) 
+			throw new SizeException("grades passed to DropFilter null");
+		
+		
 		int numberOfGrades = grades.size();
 		List<Grade> managedGrades;
 		//double minimumGrade = Double.MAX_VALUE;
@@ -51,8 +56,7 @@ public class DropFilter implements Filter {
 		Grade minimumGrade;
 		Grade maximumGrade;
 		
-		if (grades.equals(null) || grades.isEmpty()) 
-			throw new SizeException("grades passed to DropFilter null");
+		
 		
 		//if list contains fewer elements than that are to be dropped, throw SizeException
 		if (numberOfGrades == 1)

@@ -20,7 +20,7 @@ public class TotalStrategy implements GradingStrategy  {
 		// TODO Auto-generated method stub
 		double number = 0.0;
 		
-		if(grades.equals(null) || grades.size()==0)
+		if(grades == null || grades.size()==0)
 			throw new SizeException("List cant be empty");
 		else {
 				for (int i = 0; i < grades.size(); i++) {

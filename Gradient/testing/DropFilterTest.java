@@ -21,9 +21,16 @@ class DropFilterTest {
 	@Test
 	public void testSizeExceptionNull() {
 		List<Grade> grades = new ArrayList<Grade>();
-		DropFilter dropFilterImpl = new DropFilter();
-		Exception exception = assertThrows( SizeException.class, () -> { dropFilterImpl.apply(grades); } );
-		assertEquals("grades passed to DropFilter null", exception.getMessage().toString());
+		DropFilter dropFilter = new DropFilter();
+		Exception exception = assertThrows( SizeException.class, () -> { dropFilter.apply(grades); } );
+		assertEquals("grades passed to DropFilter null", exception.getMessage());
+	}
+	@Test
+	public void testSizeExceptionNull2() {
+		DropFilter dropFilter = new DropFilter();
+		List<Grade> grades = null;
+		Exception exception = assertThrows(SizeException.class, () -> dropFilter.apply(grades));
+		assertEquals("grades passed to DropFilter null", exception.getMessage());
 	}
 	@Test
 	public void testSizeExceptionOntwoArg() {
@@ -36,7 +43,7 @@ class DropFilterTest {
 		Exception exception = assertThrows( SizeException.class, () -> { dropFilterImpl.apply(grades); } );
 		assertEquals("grades list contains same number of elements that are to be dropped", exception.getMessage().toString());
 	}
-	
+
 	@Test
 	public void testSizeExceptionOne() {
 		DropFilter dropFilter = new DropFilter();

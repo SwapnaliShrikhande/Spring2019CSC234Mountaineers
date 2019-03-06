@@ -22,7 +22,15 @@ class TotalStrategyTest {
 	public void testSizeException() {
 		ArrayList<Grade> grades = new ArrayList<Grade>();
 		TotalStrategy ts= new TotalStrategy();
-		assertThrows( SizeException.class, () -> {  ts.calculate( "H.W" , grades); } );
+		Exception exception = assertThrows( SizeException.class, () -> {  ts.calculate( "H.W" , grades); } );
+		assertEquals("List cant be empty", exception.getMessage());
+	}
+	@Test
+	public void testSizeException2() {
+		List grades = null;
+		TotalStrategy ts= new TotalStrategy();
+		Exception exception = assertThrows( SizeException.class, () -> {  ts.calculate( "H.W" , grades ); } );
+		assertEquals("List cant be empty", exception.getMessage());
 	}
 	@Test
 	public void testTotal() throws SizeException {
@@ -36,8 +44,7 @@ class TotalStrategyTest {
 			grades.add(grade);
 		}
 		TotalStrategy ts= new TotalStrategy();
-		
-		assertEquals(28.0, ts.calculate("PA", grades).getValaue().doubleValue());
+		assertEquals("PA:  28.0", ts.calculate("PA", grades).toString());
 		}
 }
 
