@@ -28,6 +28,8 @@ import entity.WeightedTotalStrategy;
  * 
  * @version 1.0
  * @author  Sagacious Media
+ * @contributor Swapnali Shrikhande
+ * @editedDate 6th March 2019
  *
  */
 
