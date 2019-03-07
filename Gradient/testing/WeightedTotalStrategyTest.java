@@ -33,7 +33,6 @@ class WeightedTotalStrategyTest {
 	@Test
 	public void testOutput() throws SizeException {
 		WeightedTotalStrategy weightedTotalGrades = new WeightedTotalStrategy();
-		Map<String, Double> courseWeights = null;
 		
 		List<Grade> summedGrades = new ArrayList<Grade>();
 		summedGrades.add(new Grade("PAs", 93.0));
@@ -41,7 +40,7 @@ class WeightedTotalStrategyTest {
 		summedGrades.add(new Grade("Midterm", 80.0));
 		summedGrades.add(new Grade("Final", 75.0));
 		
-		assertEquals("Course Grade, 80.7", weightedTotalGrades.calculate("Course Grade", summedGrades).toString());
+		assertEquals("Course Grade: 80.7", weightedTotalGrades.calculate("Course Grade", summedGrades).toString());
 	}
 
 }
