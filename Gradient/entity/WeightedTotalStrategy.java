@@ -42,6 +42,7 @@ public class WeightedTotalStrategy implements GradingStrategy   {
 			individualGrade = grade.get(i);
 			
 			//courseWeights null checks
+
 			if (courseWeights != null && individualGrade.getKey() != null) {
 				if (courseWeights.get(individualGrade.getKey()) == null)
 					weightage = 1.0;
