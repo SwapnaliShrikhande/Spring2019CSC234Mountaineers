@@ -11,14 +11,14 @@ import java.util.Map;
 public class WeightedTotalStrategy extends TotalStrategy implements GradingStrategy   {
 	List<Grade> managedGrade;
 	Map<String, Double> courseWeights;
-	Double weight;
-	Double weightedTotal = 0.0;
+	Grade individualGrade;
+	Double weightedTotal = 0.0, weightage;
 	
 	public WeightedTotalStrategy() {
 		//initialize courseWeights map to null
 		courseWeights = null;
-		weight = 0.0;
 		weightedTotal = 0.0;
+		weightage = 0.0;
 	}
 	
 	public WeightedTotalStrategy(Map<String, Double> weights) {
@@ -39,24 +39,19 @@ public class WeightedTotalStrategy extends TotalStrategy implements GradingStrat
 		//handle grade cases
 		if (grade == null || grade.size() == 0) throw new SizeException("WeightedTotalStrategy passed null grade object");
 		
-		//if courseWeights is null
-		if (courseWeights == null) {
-			weight = 0.0;
-		} if (!courseWeights.containsKey(key)) {
-			weight = 0.0;
-		} else {
-			//retrieve weight from mentioned key, along with missing checks of null
-			weight = Missing.doubleValue(courseWeights.get(key));
-			
-			if (weight < 0.0) weight = 0.0;
-		}
-		double tmp = 0.0;
 		//calculate weighted total
-		//formula: summation (weights*grades)
 		for (int i = 0; i < grade.size(); i++) {
-			//weightedTotal += weight * Missing.doubleValue(grade.get(i).getValaue());
-			if (grade.get(i).getValaue() == null) tmp = 0.0;
-			weightedTotal += weight * tmp;
+			individualGrade = grade.get(i);
+			
+			//courseWeights null checks
+			if (courseWeights != null || individualGrade.getKey() != null) {
+				weightage = Missing.doubleValue(courseWeights.get(individualGrade.getKey()));
+				if (weightage < 0.0) weightage = 0.0;
+			} else {
+				weightage = 0.0;
+			}
+			
+			weightedTotal += (individualGrade.getValaue()) * (weightage);
 		}
 		
 		//return the weightedTotal grade

@@ -12,7 +12,7 @@ import entity.SizeException;
 import entity.TotalStrategy;
 
 /*
-*Author: Behnam Salamati
+*Author: Behnam Salamati, Anisha Desai 
 *
 */
 

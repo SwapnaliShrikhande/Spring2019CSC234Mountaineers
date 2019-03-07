@@ -22,9 +22,10 @@ public class DropFilter implements Filter {
 	boolean shouldDropHighest;
 	DropFilter dropFilter;
 	
-	//default constructor must construct DropFilter obejct
+	//default constructor must construct DropFilter object
 	public DropFilter() {
-		dropFilter = new DropFilter(shouldDropLowest, shouldDropHighest);
+		shouldDropLowest = true;
+		shouldDropHighest = true;
 	}
 	
 	public DropFilter(boolean shouldDropLowest, boolean shouldDropHighest) {
@@ -51,12 +52,8 @@ public class DropFilter implements Filter {
 		
 		int numberOfGrades = grades.size();
 		List<Grade> managedGrades;
-		//double minimumGrade = Double.MAX_VALUE;
-		//double maximumGrade = Double.MIN_VALUE;
 		Grade minimumGrade;
 		Grade maximumGrade;
-		
-		
 		
 		//if list contains fewer elements than that are to be dropped, throw SizeException
 		if (numberOfGrades == 1)

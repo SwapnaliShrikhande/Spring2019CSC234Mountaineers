@@ -11,8 +11,8 @@ public class TotalStrategy implements GradingStrategy  {
 	double total = 0.0;
 	Grade grade;
 	
-	public TotalStrategy(){
-		
+	public TotalStrategy() {
+		total = 0.0;
 	}
 
 	@Override

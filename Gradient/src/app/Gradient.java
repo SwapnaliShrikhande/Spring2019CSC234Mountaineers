@@ -41,10 +41,11 @@ public class Gradient
 	public static void main(String[] args)
 	{
 		Filter                   paFilter;        
-		Grade                    courseGrade, hwGrade, paGrade;
+		Grade                    courseGrade, hwGrade, paGrade, weigtageGrade;
 		GradingStrategy          courseStrategy, hwStrategy, paStrategy;
 		List<Grade>              grades, hws, pas;
 		Map<String, Double>      courseWeights;
+		int 					 paSize, hwSize, gradesSize;
 
 		// Early exit
 		if ((args == null) || (args.length != 13))
@@ -76,32 +77,69 @@ public class Gradient
 			{
 				pas.add(parseGrade("PA"+(i+1), args[i]));
 			}
-
+			
+			//printing the PA grades
+			for (Grade pagrade : pas) {
+				System.out.println(pagrade.getKey()+": "+pagrade.getValaue());
+			}
+			
 			// Calculate the PA grade (after filtering)
 			paGrade = paStrategy.calculate("PAs", paFilter.apply(pas));
+			paSize = pas.size();
+			
+			//printing Programming Assignments total
+			System.out.print("Programming Assignments: ");
+			for (int i = 0; i < paSize-1; i++) {
+				System.out.print(pas.get(i).getValaue()+" + ");
+			}
+			System.out.println(pas.get(paSize-1).getValaue()+" = "+paGrade.getValaue()+"\n");
 
 			// Put the HW grades in a List
 			hws = new ArrayList<Grade>();
-			for (int i=0; i<5; i++)
-			{
+			for (int i=0; i<5; i++)	{
 				hws.add(parseGrade("HW"+(i+1), args[i+6]));
 			}
 
 			// Calculate the HW grade
 			hwGrade = hwStrategy.calculate("HWs", hws);
-
+			hwSize = hws.size();
+			
+			//printing homework total
+			for (Grade hwgrade : hws) {
+				System.out.println(hwgrade.getKey()+": "+hwgrade.getValaue());
+			}
+			System.out.print("Homework: ");
+			for (int i = 0; i < hwSize-1; i++) {
+				System.out.print(hws.get(i).getValaue()+" + ");
+			}
+			System.out.println(hws.get(hwSize-1).getValaue()+" = "+hwGrade.getValaue()+"\n");
+			
 			// Put all of the grades in a List
 			grades = new ArrayList<Grade>();
 			grades.add(paGrade);
 			grades.add(hwGrade);
 			grades.add(parseGrade("Midterm", args[11]));
 			grades.add(parseGrade("Final",   args[12]));
+			
+			//printing midterm marks
+			System.out.println("Midterm Exams: "+args[11]+"\n");			
+
+			//printing final exam marks
+			System.out.println("Final Exams: "+args[12]+"\n");
 
 			// Calculate the final grade
 			courseGrade = courseStrategy.calculate("Course Grade", grades);
-
+			gradesSize = grades.size();
+			
 			// Display the final grade
-			System.out.println(courseGrade.toString());        
+			System.out.print(courseGrade.getKey()+": ");
+			for (int i = 0; i < gradesSize - 1; i++) {
+				weigtageGrade = grades.get(i);
+				System.out.print(grades.get(i).getValaue()+"*"+courseWeights.get(weigtageGrade.getKey())+" + ");
+			}
+			System.out.print(grades.get(gradesSize-1).getValaue()+"*"+courseWeights.get("Final")+" = "+courseGrade.getValaue());
+			
+			/*System.out.println(courseGrade.toString());*/        
 		}
 		catch (SizeException se)
 		{
@@ -110,6 +148,8 @@ public class Gradient
 		catch (IllegalArgumentException iae)
 		{
 			// Should never get here since all keys should be valid
+			System.out.println("Keys are invalid.");
+			System.exit(0);
 		}
 	}
 	
