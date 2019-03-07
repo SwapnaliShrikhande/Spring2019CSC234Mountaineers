@@ -45,10 +45,12 @@ public class WeightedTotalStrategy implements GradingStrategy   {
 			if (courseWeights != null || individualGrade.getKey() != null) {
 				if (courseWeights.get(individualGrade.getKey()) == null)
 					weightage = 1.0;
-				else if (weightage < 0.0) 
+				else if (courseWeights.get(individualGrade.getKey()) < 0.0) 
 					weightage = 0.0;
 				else
 					weightage = courseWeights.get(individualGrade.getKey());
+			}else {
+				weightage = 0.0;
 			}
 			
 			weightedTotal += (Missing.doubleValue(individualGrade.getValaue())) * (weightage);

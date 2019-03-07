@@ -73,7 +73,7 @@ class WeightedTotalStrategyTest {
 		summedGrades.add(new Grade("HWs", 50.0));
 		summedGrades.add(new Grade("Midterm", 80.0));
 		summedGrades.add(new Grade("Final", 75.0));
-		assertEquals("Course Grade:   1.3", courseStrategy.calculate("Course Grade", summedGrades).toString());
+		assertEquals("Course Grade:  43.5", courseStrategy.calculate("Course Grade", summedGrades).toString());
 	}
 
 }
