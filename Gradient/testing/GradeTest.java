@@ -43,7 +43,6 @@ public class GradeTest {
 	@Test
 	public void toStringTest2() {
 		Grade grade = new Grade("PA",null);
-		System.out.println(grade.toString());
 		assertEquals("PA:  NA", grade.toString());
 	}
 	@Test

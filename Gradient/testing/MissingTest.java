@@ -14,8 +14,7 @@ class MissingTest {
 
 	@Test
 	public void test() {
-		assertEquals(0.0, Missing.doubleValue(null));
-		
+		assertEquals(0.0, Missing.doubleValue(null));	
 	}
 	@Test
 	public void test2() {
@@ -28,6 +27,11 @@ class MissingTest {
 	@Test
 	public void test4() {
 		assertEquals(4.0,  Missing.doubleValue(4.0, 3.0));
+	}
+	@Test
+	public void test5() {
+		Missing missing = new Missing();
+		assertTrue(missing != null);
 	}
 	
 }
