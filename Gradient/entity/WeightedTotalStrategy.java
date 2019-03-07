@@ -8,17 +8,15 @@ import java.util.Map;
  * @author Mohini Patil, Swapnali Shrikhande
  * @datecreated 3rd March 2019
  * */
-public class WeightedTotalStrategy extends TotalStrategy implements GradingStrategy   {
+public class WeightedTotalStrategy implements GradingStrategy   {
 	List<Grade> managedGrade;
 	Map<String, Double> courseWeights;
 	Grade individualGrade;
-	Double weightedTotal = 0.0, weightage;
+	Double weightedTotal = 0.0, weightage = 0.0;
 	
 	public WeightedTotalStrategy() {
 		//initialize courseWeights map to null
 		courseWeights = null;
-		weightedTotal = 0.0;
-		weightage = 0.0;
 	}
 	
 	public WeightedTotalStrategy(Map<String, Double> weights) {
@@ -37,7 +35,7 @@ public class WeightedTotalStrategy extends TotalStrategy implements GradingStrat
 		managedGrade = grade;
 		
 		//handle grade cases
-		if (grade == null || grade.size() == 0) throw new SizeException("WeightedTotalStrategy passed null grade object");
+		if (grade == null || grade.size() == 0) throw new SizeException("WeightedTotalStrategy passed null or empty grade object");
 		
 		//calculate weighted total
 		for (int i = 0; i < grade.size(); i++) {
