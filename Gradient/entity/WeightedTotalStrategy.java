@@ -49,7 +49,7 @@ public class WeightedTotalStrategy implements GradingStrategy   {
 				weightage = 0.0;
 			}
 			
-			weightedTotal += (individualGrade.getValaue()) * (weightage);
+			weightedTotal += (Missing.doubleValue(individualGrade.getValaue())) * (weightage);
 		}
 		
 		//return the weightedTotal grade
