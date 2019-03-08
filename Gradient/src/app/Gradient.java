@@ -134,14 +134,16 @@ public class Gradient
 			gradesSize = grades.size();
 			
 			// Display the final grade
-			System.out.print(courseGrade.getKey()+": ");
-			for (int i = 0; i < gradesSize - 1; i++) {
-				weigtageGrade = grades.get(i);
-				System.out.print(grades.get(i).getValaue()+"*"+courseWeights.get(weigtageGrade.getKey())+" + ");
-			}
-			System.out.print(grades.get(gradesSize-1).getValaue()+"*"+courseWeights.get("Final")+" = "+courseGrade.getValaue());
-			
-			/*System.out.println(courseGrade.toString());*/        
+			if (courseWeights == null) {
+				System.out.println(courseGrade.toString());
+			} else {
+				System.out.print(courseGrade.getKey()+": ");
+				for (int i = 0; i < gradesSize - 1; i++) {
+					weigtageGrade = grades.get(i);
+					System.out.print(grades.get(i).getValaue()+"*"+courseWeights.get(weigtageGrade.getKey())+" + ");
+				}
+				System.out.print(grades.get(gradesSize-1).getValaue()+"*"+courseWeights.get("Final")+" = "+courseGrade.getValaue());
+			}	
 		}
 		catch (SizeException se)
 		{
